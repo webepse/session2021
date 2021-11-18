@@ -5,6 +5,12 @@
     {
         header("LOCATION:index.php");
     }
+
+    if(isset($_GET['deco']))
+    {
+        session_destroy();
+        header("LOCATION:index.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +24,9 @@
 </head>
 <body>
     <h1>Administration</h1>
+    <div>
+        <a href="test.php?deco=ok">Déconnexion</a>
+    </div>
     <?php 
         echo "Bonjour ".$_SESSION['login'];
     

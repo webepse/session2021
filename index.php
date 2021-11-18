@@ -1,7 +1,7 @@
 <?php
     session_start();
     $login="Jordan";
-    $password="epse";
+    $hashPass='$2y$10$dnhMkj5VDDpsbnOJ1uT7gu/mWM6RiQU6Foz3Z8zawlUhfeIWGWBsm';
 
 
     if(isset($_POST['login']))
@@ -13,7 +13,7 @@
             $postLogin = htmlspecialchars($_POST['login']);
             if($login == $postLogin)
             {
-                if($password==$_POST['password'])
+                if(password_verify($_POST['password'], $hashPass))
                 {
                     $_SESSION['login']=$login;
                     header("LOCATION:test.php");
